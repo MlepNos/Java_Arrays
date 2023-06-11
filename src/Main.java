@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
@@ -5,21 +7,29 @@ public class Main {
 
 
 
-/*   Write a method called readIntegers, that reads a comma delimited list of numbers,
-                entered by the user from the console, and then returns an array, containing those numbers that were entered.
-                Next, write a method called findMin, that takes the array as an argument, and returns the minimum value found in that array.
-        In the main method
-        Call the method readIntegers, to get the array of integers from the user, and print these out,
-                using a method found in java.util.Arrays.
-                Next, call the findMin method, passing the array, returned from the call to the readIntegers method.
-                Print the minimum element in the array, which should be returned from the findMin method.
-                A tip here. Assume that the user will only enter numbers - so you don't need to do any validation for the console input.
-
-*/
-
-//System.out.println(readIntegers());
 
 
+    }
+
+    public static void Reverse(int[] array){
+        int maxIndex = array.length -1;
+        int half = array.length/2;
+        int temp =0;
+        for(int i=0;i<half;i++){
+           temp=array[i];
+           array[i]= array[maxIndex-i];
+           array[maxIndex-i]=temp;
+           System.out.println(Arrays.toString(array));
+        }
+
+    }
+    public static int[] ReverseCopy(int[] array ){
+        int[] ReversedArrayCopy = new int[array.length];
+        int maxIndex = array.length-1;
+        for(int element : array){
+            ReversedArrayCopy[maxIndex--] = element;
+        }
+    return ReversedArrayCopy;
     }
 
 
@@ -132,6 +142,80 @@ Methods:
 
 }
 */
+/*
+    Arrays Challange 3 -> Reverse Array
+The challenge is to write a method called reverse, that takes an int array as a parameter.
+In the main method, call the reverse method, and print the array both before and after the reverse method is called.
+To reverse the array, you have to swap the elements, so that the first element is swapped with the last element, and so on.
+So for example, if the array contains the numbers 1,2,3,4,5, then the reversed array should be, 5,4,3,2,1
+use readIntegers() from the last question.
 
 
+Methods:
+// this method will change the original array
+  public static void Reverse(int[] array){
+        int maxIndex = array.length -1;
+        int half = array.length/2;
+        int temp =0;
+        for(int i=0;i<half;i++){
+           temp=array[i];
+           array[i]= array[maxIndex-i];
+           array[maxIndex-i]=temp;
+           System.out.println(Arrays.toString(array));
+        }
+
+    }
+    // this method wont change the original array
+    public static int[] ReverseCopy(int[] array ){
+        int[] ReversedArrayCopy = new int[array.length];
+        int maxIndex = array.length-1;
+        for(int element : array){
+            ReversedArrayCopy[maxIndex--] = element;
+        }
+    return ReversedArrayCopy;
+    }
+
+Main:
+        int[] myArray = readIntegers();
+        System.out.println(Arrays.toString(myArray));
+
+        //Reverse(myArray);
+        //System.out.println(Arrays.toString(myArray));
+
+        int[] copyArray =ReverseCopy(myArray);
+        System.out.println(Arrays.toString(copyArray));
+        System.out.println(Arrays.toString(myArray));
+
+
+2 Dimensional Arrays
+Main:
+  int[][] array2 = new int[4][4];
+        //System.out.println(Arrays.toString(array2));
+        //System.out.println("array2.length = " + array2.length);
+
+        for (int[] outer : array2) {
+            //System.out.println(Arrays.toString(outer));
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            var innerArray = array2[i];
+            for (int j = 0; j < innerArray.length; j++) {
+                //System.out.print(array2[i][j] + " ");
+                array2[i][j] = (i * 10) + (j + 1);
+            }
+           //System.out.println();
+        }
+
+        for (var outer : array2) {
+            for (var element : outer) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+
+        //System.out.println(Arrays.deepToString(array2));
+
+
+
+*/
 }
